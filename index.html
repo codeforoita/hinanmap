@@ -30,14 +30,15 @@ body { width: 100%; height: 100%; margin: 0; }
     var lon = 130.9574997;
     // 現在地を取得
     let promise = new Promise((resolve, reject) => { 
-        resolve(
             navigator.geolocation.getCurrentPosition(
                 // 取得成功した場合
-                function(position) {
-                    lat = position.coords.latitude;
-                    lon = position.coords.longitude;
-                    alert(lat + ":" + lon);
-                },
+                resolve(
+                    function(position) {
+                        lat = position.coords.latitude;
+                        lon = position.coords.longitude;
+                        alert(lat + ":" + lon);
+                    }
+                ),
                 // 取得失敗した場合
                 function(error) {
                   switch(error.code) {
